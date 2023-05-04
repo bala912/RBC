@@ -1,6 +1,5 @@
 package com.rbc.gotrain.controllers;
 
-import com.rbc.gotrain.config.LoadData;
 import exceptions.InvalidTimeFormatException;
 import exceptions.NoTrainFoundException;
 import org.slf4j.Logger;
@@ -11,6 +10,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ *  Class intercepts exceptions and send appropriate response to client
+ */
 @ControllerAdvice
 @RestController
 public class GlobalExceptionHandler {

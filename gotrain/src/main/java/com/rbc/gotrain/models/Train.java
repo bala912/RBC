@@ -8,6 +8,9 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ *  Class models Train object
+ */
 @Entity
 @Getter @Setter @AllArgsConstructor @NoArgsConstructor
 public class Train {

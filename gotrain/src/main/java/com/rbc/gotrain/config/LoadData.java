@@ -18,6 +18,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
+/**
+ *  Class loads the data into H2 from data.json ( Trains schedule )
+ */
 @Configuration
 @AllArgsConstructor
 public class LoadData {
