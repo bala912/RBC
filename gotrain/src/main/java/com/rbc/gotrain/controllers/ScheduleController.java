@@ -29,9 +29,7 @@ public class ScheduleController {
     @GetMapping("/schedule/{line}")
     public List<Train> getTrainScheduleByLineAndDeparture(@PathVariable String line,
                                                           @RequestParam( required = false) String departure) {
-        List<Train> trains =  scheduleService.getTrainsByLineAndDeparture(line,departure);
-
-        return trains;
+        return scheduleService.getTrainsByLineAndDeparture(line,departure);
     }
 
 

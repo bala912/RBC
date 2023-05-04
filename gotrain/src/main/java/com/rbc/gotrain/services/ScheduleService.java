@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalTime;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,12 +33,13 @@ public class ScheduleService {
        }
        else if(departure != null) { // Filter by Departure time now
            LocalTime departureTime = timeConverter.convertToTime(departure);
+           Optional<Train> result =  trains.stream().
+                   filter(train -> departureTime.equals(timeConverter.convertToTime(Integer.toString(train.getDeparture()))))
+                   .findFirst();
 
-           // TODO: Filter the results by Departure time now
+           return result.isPresent() ? Collections.singletonList(result.get()) : Collections.emptyList();
        }
        else
            return trains;
-
-       return Collections.emptyList();
     }
 }
