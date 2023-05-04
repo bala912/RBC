@@ -1,6 +1,7 @@
 package com.rbc.gotrain.controllers;
 
 import com.rbc.gotrain.config.LoadData;
+import exceptions.InvalidTimeFormatException;
 import exceptions.NoTrainFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,12 @@ public class GlobalExceptionHandler {
     public final ResponseEntity<String> handleNoTrainFoundException(NoTrainFoundException ex) {
         log.info(ex.getMessage());
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(InvalidTimeFormatException.class)
+    public final ResponseEntity<String> handleInvalidTimeFormatException(InvalidTimeFormatException ex) {
+        log.info(ex.getMessage());
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
